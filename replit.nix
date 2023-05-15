@@ -1,5 +1,5 @@
 { pkgs }: {
-  deps = [
-    pkgs.php74
-  ];
+	deps = [
+		pkgs.php82
+	];
 }

@@ -11,11 +11,16 @@ function autoloader($pClassName)
     if (str_contains($teste_path, "joao")) {
         // print_r("Achou joao");
         $path = '/home/joao/ufmg/poo/tp-poo/';
-    } else {
+    } else if(str_contains($teste_path, "tp-poo")){
         // print_r("Não achou joao");
         $path = '/home/runner/tp-poo/';
     }
+	else if(str_contains($teste_path, "testeTPPOO")){
+		$path = '/home/runner/testeTPPOO/';
+	}
 
+	// print_r("Caminho global: " . $path . "\n");
+	
     if ($pClassName == 'persist') {
 
 

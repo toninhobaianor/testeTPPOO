@@ -459,7 +459,7 @@ function criaViagem(){
     //
 }
 
-function alteraViagem(){
+/*function alteraViagem(){
 
 }
 
@@ -474,4 +474,4 @@ function editarVoos(){
 function editarVoos(){
 
     
-}
+}*/

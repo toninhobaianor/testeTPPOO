@@ -14,7 +14,7 @@ class Aeronave extends persist
 
 	private string $compAereaPertencente;
 
-	private array $listaAssentos;
+	private $listaAssentos = array();
 
 
 	static $local_filename = "aeronaves.txt";
