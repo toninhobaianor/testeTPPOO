@@ -7,26 +7,18 @@ $valido = 0;
 $temviaje = 0;
 while ($sair == 0) {
     print_r("------ BEM VINDO AO SITE DAS COMPAHIAS AEREAS ------\r\n");
-    print_r("Primeiro presisamos saber se ja tem um cadstro no nosso site\r\n");
-    $opcao = (string)readline("Digite seu email: ");
-    validalogin($opcao); 
+  
+    //$opcao = (string)readline("Digite seu email: ");
+    //validalogin($opcao); 
     // essa função poderia retornar um cliente e ser colocada em uma variavel
-    if($valido == 1){
-        print_r("Observamos aqui que ja e nosso clinte\r\n");
-    }
-    else{
-        print_r("Observamos que vc não e nosso cliente\r\n");
-        print_r("por favor realize o cadatro abaixo\r\n");
-        fazer_cadastro();
-        // essa daqui tambem poderia retornar um cliente
-    }
+
     print_r("agora oque o senhor(a) '' deseja fazer \r\n");
     print_r("C - comprar passagem\r\n");
     print_r("A - alterar passagem\r\n");
     print_r("D - cancelar passagem\r\n");
     print_r("S - sair do site\r\n");
     $op = (string)readline("Digite uma opcao: ");
-    if($op == "A"){
+    if($op == "C"){
         print_r("nos conte um pouco sobre a viagem que deseja fazer\r\n");
         $local_parti = (string)readline("Digite de onde vai sai(sigla do estado): ");
         $local_cheg = (string)readline("Digite para onde vai (sigla do estado): ");
@@ -38,14 +30,20 @@ while ($sair == 0) {
             print_r("encontramos estas viajens\r\n");
             $via = (int)readline("Digite em qual delas deseja viajar: ");
             escolher_assento($via);
-            print_r("deseja mais alguma coisa?\r\n");
-            $opcao1 = (string)readline("Digite (s/n): ");
-            if($opcao1 == "s" ){
-    
+            $assento = (string)readline("Digite em qual assento deseja viajar: ");
+            print_r("quem vai viajar(se for voce digite 1 se for outra pessoa digite 2)\r\n");
+            $esc = (int)readline("Digite aqui: ");
+            if($esc == 1){
+              //pergunta se e cliente
+              //cria o passageiro a partir do cliente
+              comprar_passagem($via,$assento);
             }
             else{
-                $sair++;
+              //pergunta se e cliente
+              //cria um passageiro com algumas perguntas
+              comprar_passagem($via,$assento);
             }
+            
         }
         else{
     
@@ -55,9 +53,11 @@ while ($sair == 0) {
         
     }
     if($op == "D"){
-
+        //saber se e cliente
+        //assesar o historico de compras
+      //retirar o objeto procurado e destrui-lo
     }
-    if($op == "E"){
+    if($op == "S"){
         print_r("tenha um bom dia!!!");
         $sair++;
     }
@@ -86,17 +86,17 @@ function fazer_cadastro(){
 }
 
 function procurar_viajem(string $local,string $local1,int $dia,int $mes){
-    $viajens = Viajem::getRecords();
+    $viajens = Viagem::getRecords();
     foreach($viajens as $viaje){
-        if($viaje->getAeroOrigem() == $local && $viaje->getAerodestino() == $local1 && $viaje->getdia() == $dia && $viaje->getmes() == $mes){
-            print_r("$viaje->getIndex() . " - " . $viaje->getAeroOrigem() . " - " . $viaje->getAerodestino() . " - " . $viaje->getdia() . " - " . $viaje->getHorario()."-".$viaje->getCompanhiaaerea()\r\n");
+        if($viaje->getAeroportoOrigem() == $local && $viaje->getAeroportodestino() == $local1 && $viaje->getdia() == $dia && $viaje->getmes() == $mes){
+            print_r("$viaje->getIndex() . " - " . $viaje->getAeroOrigem() . " - " . $viaje->getAerodestino() . " - " . $viaje->getdia() . " - " . $viaje->getHorario()."-".$viaje->getCompanhiaaerea(). " - ".$viaje->getValorViagem()\r\n");
             $temviaje++;
         }
     }
 }
 
 function escolher_assento(int $index){
-    $viajens = Viajem::getRecords();
+    $viajens = Viagem::getRecords();
     foreach($viajens as $viaje){
         if($viaje->getindex() == $index){
             $aeronave = $viaje->getAeronave();
@@ -104,4 +104,14 @@ function escolher_assento(int $index){
         }
     }
 
+}
+
+function comprar_passagem(int $index,string $assento){
+    $viajens = Viagem::getRecords();
+    foreach($viajens as $viaje){
+        if($viaje->getindex() == $index){
+          
+          $passagem = new Passagem($viaje->getValorViagem(),$assento)
+        }
+    }
 }

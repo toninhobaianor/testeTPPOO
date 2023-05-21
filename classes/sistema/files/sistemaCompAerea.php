@@ -234,3 +234,23 @@ function sis_verComissariosDaCompanhiaAerea()
 
     print_r("\n\n");
 }
+
+function cria_viagem(){
+  private int $dia;
+  private int $mes;
+  public string $aeroportoOrigem;
+  private string $aeroportoDestino;
+  private DateTime $horarioPartida;
+  private DateTime $horarioChegada;
+  private DateInterval $duracao;
+  private string $companhiaAerea;
+  private Aeronave $aeronave;
+  private float $carga;
+  private ?array $passageiros;
+  private int $voo;
+  private int $milhasViagem;
+  private float $valorViagem;
+  private float $valorFranquiaBagagem;
+
+  
+}
