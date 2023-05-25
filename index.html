@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible">
+  
+  <title>
+    "teste doc"
+  </title>
+</head>
+
+<body>
+  <!--o action ele pega os dados do form faz um array com o nome do method e envia para uma arquivo definido(pagina.php no caso) -->
+  <form action="classes/pagina.php" method="get">
+  <!--<label> qualquer coisa </label><br>-->
+  <button>
+    ir para a pagina
+  </button>
+    <!--o botão serve apenas para ir para a pagina.php-->
+  <input name="nome" type="text"> nome </input><br>
+  <input name="sobrenome" type="text">sobrenome</input><br>
+  <input name="documento" type="text"> documento </input><br>
+  <!--<input name="capacidadecarga" type="number">capacidadeCargaKg</input><br>
+  <input name="registro" type="text">registro</input><br>
+  <input name="disponivel" type="text">disponivel</input>
+    <!-- com o input coletamos os dados e armazenas no vetor GET ou post com a chave do array name ali -->
+  </form>
+</body>

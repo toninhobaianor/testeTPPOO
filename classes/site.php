@@ -5,6 +5,19 @@ include_once("../libs/global.php");
 $sair = 0;
 $valido = 0;
 $temviaje = 0;
+  $dia = 23;
+  $mes = 08;
+  $aeroportoOrigem = "bh";
+  $aeroportoDestino = "sp";
+  $companhiaAerea = "gol";
+  private Aeronave $aeronave;
+
+  $voo = 1;
+  $milhasViagem = 0;
+  $valorViagem = 275,51;
+  $valorFranquiaBagagem = 26,90;
+
+$viaje = new Viagem();
 while ($sair == 0) {
     print_r("------ BEM VINDO AO SITE DAS COMPAHIAS AEREAS ------\r\n");
   
@@ -34,6 +47,16 @@ while ($sair == 0) {
             print_r("quem vai viajar(se for voce digite 1 se for outra pessoa digite 2)\r\n");
             $esc = (int)readline("Digite aqui: ");
             if($esc == 1){
+              $email = (string)readline("qual o seu email:");
+              validalogin($email);
+              if($valido == 1){
+                
+              }
+              else{
+                $cliente = fazer_cadastro();
+                $passageiro = criar_passageiro($cliente);
+                
+              }
               //pergunta se e cliente
               //cria o passageiro a partir do cliente
               comprar_passagem($via,$assento);
@@ -63,7 +86,21 @@ while ($sair == 0) {
     }
 
 }
+function criar_passageiro(Cliente $cliente){
+  $tipo= False;
+  $nome = $cliente->getNome();
+  $sobrenome = $cliente->getSobrenome();
+  $rg = (string)readline("qual o seu rg:");
+  $passaporte = (string)readline("qual o seu passaporte:");
+  $documentoIden = (string)readline("agora outro documento:");
+  $cpf = (string)readline("qual o seu cpf:");
+  $nacio = (string)readline("qual a sua nacionalidade:");
+  $data = (string)readline("qual a sua nacionalidade");
+  $email = $cliente->getEmail();
 
+  $passageiro = new Passageiro($tipo,$nome,$sobrenome,$rg,$passaporte,$documentodeIden,$cpf,$nacio,$data,$email);
+  return $passageiro;
+}
 function validalogin(string $email){
     $clientes = Cliente::getRecords();
     foreach($clientes as $client){
@@ -77,12 +114,14 @@ function validalogin(string $email){
 function fazer_cadastro(){
     $nome = (string)readline("Digite seu nome: ");
     $sobrenome = (string)readline("Agora seu sobrenome: ");
-    $rg = (string)readline("Qual o seu rg: ");
-    $passaporte = (string)readline("Agora o seu passaporte: ");
-    $email = (string)readline("e agora o seu email: ");
-    $cliente = new Cliente($nome,$sobrenome,$rg,$passaporte,$email);
     
+    $documento = (string)readline("Agora queremos um documento de identificacao: ");
+    $email = (string)readline("e agora o seu email: ");
+    $cliente = new Cliente($nome,$sobrenome,$documento,$email);
+
+  
     $cliente -> save();
+    return $cliente;
 }
 
 function procurar_viajem(string $local,string $local1,int $dia,int $mes){
@@ -111,7 +150,7 @@ function comprar_passagem(int $index,string $assento){
     foreach($viajens as $viaje){
         if($viaje->getindex() == $index){
           
-          $passagem = new Passagem($viaje->getValorViagem(),$assento)
+         // $passagem = new Passagem($viaje->getValorViagem(),$assento);
         }
     }
 }

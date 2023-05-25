@@ -22,7 +22,7 @@ class Viagem extends persist
 
   static $local_filename = "viagens.txt";
 
-  public function __construct(int $dia,int $mes,string $aeroportoOrigem,string $aeroportoDestino,/* DateTime $horarioPartida, DateTime $horarioChegada,*/ string $companhiaAerea, Aeronave $aeronave, float $carga, int $voo, int $milhasViagem, float $valorViagem, float $valorFranquiaBagagem)
+  public function __construct(int $dia,int $mes,string $aeroportoOrigem,string $aeroportoDestino,/* DateTime $horarioPartida, DateTime $horarioChegada,*/ string $companhiaAerea, Aeronave $aeronave, /*float $carga,*/ int $voo, int $milhasViagem, float $valorViagem, float $valorFranquiaBagagem)
   {
     $this->setdia($dia);
     $this->setmes($mes);

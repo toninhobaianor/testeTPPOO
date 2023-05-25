@@ -12,14 +12,15 @@ class Cliente extends persist
   private string $rg = '';
   private string $passaporte = '';
   private string $documentoIdentifi;
-
+  private string $email;
   static $local_filename = "clientes.txt";
 
-  public function __construct(string $nome, string $sobrenome, string $documentoIdentifi)
+  public function __construct(string $nome, string $sobrenome, string $documentoIdentifi,string $email)
   {
     $this->setNome($nome);
     $this->setSobrenome($sobrenome);
     $this->setDocumentoIdentificacao($documentoIdentifi);
+    $this->setEmail($email);
   }
 
   public function getNome()
@@ -81,6 +82,12 @@ class Cliente extends persist
   {
     $this->passaporte = $passaporte;
   }
+  public function getEmail(){
+    return $this->email;
+  }
+  public function setEmail(string $email){
+    $this->email = $email;
+  }
 
   static public function getFilename()
   {
@@ -92,17 +99,17 @@ class Cliente extends persist
   
 // }
 
-public function alteracaoPassagem(Passagem $novaPassagem){
-    $this->setSiglaAeroportoOrigem($novaPassagem->getSiglaAeroportoOrigem());
-    $this->setSiglaAeroportoDestino($novaPassagem);
-    $this->setAssento($novaPassagem);
-    $this->setFranquiasBagagem($novaPassagem);
-    $this->setPassageiro($novaPassagem);
-    $this->setStatus($novaPassagem);
-    $this->setlistaViagensEConexoes($novaPassagem);
-}
-public function cancelamentoDePassagem(Passagem $passagem){
-  setStatus("Passagem cancelada");
-}
+//public function alteracaoPassagem(Passagem $novaPassagem){
+   // $this->setSiglaAeroportoOrigem($novaPassagem->getSiglaAeroportoOrigem());
+  //  $this->setSiglaAeroportoDestino($novaPassagem);
+   // $this->setAssento($novaPassagem);
+  //  $this->setFranquiasBagagem($novaPassagem);
+ //   $this->setPassageiro($novaPassagem);
+  //  $this->setStatus($novaPassagem);
+  //  $this->setlistaViagensEConexoes($novaPassagem);
+//}
+//public function cancelamentoDePassagem(Passagem $passagem){
+  //setStatus("Passagem cancelada");
+//}
 // public function compraDeFranquia(Passagem $passagem){
 // }

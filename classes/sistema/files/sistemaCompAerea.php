@@ -236,21 +236,20 @@ function sis_verComissariosDaCompanhiaAerea()
 }
 
 function cria_viagem(){
-  private int $dia;
-  private int $mes;
-  public string $aeroportoOrigem;
-  private string $aeroportoDestino;
-  private DateTime $horarioPartida;
-  private DateTime $horarioChegada;
-  private DateInterval $duracao;
-  private string $companhiaAerea;
+  $dia= (int)readline("Digite em qual dia vai sair: ");
+  $mes = (int)readline("Qual mes vai sair: ");
+  $aeroportoOrigem = (string)readline("De qual aeroporto vai partir: ");
+  $aeroportoDestino = (string)readline("Em qual vai chegar: ");
+  //private DateTime $horarioPartida;
+  //private DateTime $horarioChegada;
+  //private DateInterval $duracao;
+  $companhiaAerea = (string)readline("qual compania vai realizar o voo: ");
+  
   private Aeronave $aeronave;
-  private float $carga;
-  private ?array $passageiros;
   private int $voo;
   private int $milhasViagem;
-  private float $valorViagem;
-  private float $valorFranquiaBagagem;
-
+  $valorViagem = (float)readline("Qual vai ser o valor da passagem: ");
+  $valorFranquiaBagagem = (float)readline("Digite o valor da franquia: ");
+  $viagem = new Viagem();
   
 }
