@@ -1,7 +1,7 @@
 <?php
 
 include_once("../libs/global.php");
-include_once("sistema/file/sistemaCliente.php")
+include_once("sistema/file/sistemaCliente.php");
 
 $sair = 0;
 
