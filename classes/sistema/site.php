@@ -1,7 +1,8 @@
 <?php
 
 include_once("../libs/global.php");
-include_once("sistema/file/sistemaCliente.php")
+include_once("files/sistemaCliente.php");
+include_once("files/sistemaPassageiro.php");
 
 $sair = 0;
 
@@ -15,6 +16,11 @@ while ($sair == 0) {
     print_r(++$escolha . " - Cadastra Cliente\r\n");
     print_r(++$escolha . " - Ver Clientes\r\n");
     print_r(++$escolha . " - Editar Cliente\r\n");
+
+    print_r("---PASSGEIRO--- \r\n");
+    print_r(++$escolha . " - Cadastra Passgeiro\r\n");
+    print_r(++$escolha . " - Ver Passageiro\r\n");
+    print_r(++$escolha . " - Editar Passageiro\r\n");
 
     $opcao = (string)readline("Digite uma opcao: ");
 
@@ -35,9 +41,27 @@ while ($sair == 0) {
             break;
 
         case ++$escolha:
-            print_r("Editar Aeroporto\r\n");
+            print_r("Editar Clientes\r\n");
             print_r("\n\n");
             editar_Cliente();
+            break;
+
+        case ++$escolha:
+            print_r("Cadastramento de Passageiro\r\n");
+            print_r("\n\n");
+            cadastra_Passageiro();
+            break;
+                
+        case ++$escolha:
+            print_r("Ver Passageiros\r\n");
+            print_r("\n\n");
+            ver_Passageiros();
+            break;
+    
+        case ++$escolha:
+            print_r("Editar Passgeiros\r\n");
+            print_r("\n\n");
+            editar_Passageiro();
             break;
 
         case -1:

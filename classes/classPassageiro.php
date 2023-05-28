@@ -9,8 +9,8 @@ class Passageiro extends persist
   private bool $tipoPassageiro;
   private string $nome;
   private string $sobrenome;
-  private string $rg;
-  private string $passaporte;
+  private string $rg = '';
+  private string $passaporte = '';
   private string $documentoIdentificacao;
   private string $cpf;
   private string $nacionalidade;

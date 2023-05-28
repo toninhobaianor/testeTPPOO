@@ -36,7 +36,7 @@ function mostra_Passageiros(array $passageiros){
             $pass = $passageiro->getPassaporte();
         }
 
-        print_r($passageiro->getIndex() . "-" . $passageiro->getNome() . "-" . $passageiro->getSobrenome() . "-" . $rg . "-" . $pass . "-" . $passageiro->getCpf() . "-" . $passageiro->getNacionalidade() . "-" . $passageiro->getEmail() . "\r\n");
+        print_r($passageiro->getIndex() . "-" . $passageiro->getNome() . "-" . $passageiro->getSobrenome() . "-" . $rg . "-" . $pass . "-" . "-" . $passageiro->getNacionalidade() . "-" . "\r\n");
     }
 }
 
