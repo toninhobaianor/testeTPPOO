@@ -7,6 +7,7 @@ include_once("files/sistemaAeronave.php");
 include_once("files/sistemaVeiculo.php");
 include_once("files/sistemaTripulante.php");
 include_once("files/sistemaVoo.php");
+include_once("files/sistemadeMilhagem.php")
 
 // define("PILOTO", 1);
 // define("COMISSARIO", 2);
@@ -43,6 +44,8 @@ while ($sair == 0) {
     print_r(++$opcMenu . " - Ver Veiculos da Comp Aerea\r\n");
     print_r(++$opcMenu . " - Ver Pilotos da Comp Aerea\r\n");
     print_r(++$opcMenu . " - Ver Comissarios da Comp Aerea\r\n");
+  
+    print_r("\n--- PROGRAMAS DE MILHAGEM ---\r\n");
     print_r(++$opcMenu . " - Cadastrar Programa de Milhagem\r\n");
     print_r(++$opcMenu . " - Ver Programas de Milhagem\r\n");
     print_r(++$opcMenu . " - Editar Programa de Milhagem\r\n");
@@ -196,6 +199,8 @@ while ($sair == 0) {
             sis_verComissariosDaCompanhiaAerea();
             break;
 
+
+        //###PROGRAMA DE MILHAGEM###
         case ++$opcMenu:
             print_r("Cadastrar programa de milhagem\r\n");
             print_r("\n\n");

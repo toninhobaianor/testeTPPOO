@@ -3,6 +3,7 @@
 include_once("../libs/global.php");
 include_once("files/sistemaCliente.php");
 include_once("files/sistemaPassageiro.php");
+include_once("files/sistemaViagem.php");
 
 $sair = 0;
 
@@ -21,6 +22,11 @@ while ($sair == 0) {
     print_r(++$escolha . " - Cadastra Passgeiro\r\n");
     print_r(++$escolha . " - Ver Passageiro\r\n");
     print_r(++$escolha . " - Editar Passageiro\r\n");
+
+    print_r("---VIAGEM--- \r\n");
+    print_r(++$escolha . " - Cadastra viagem\r\n");
+    print_r(++$escolha . " - Ver Viagens\r\n");
+    print_r(++$escolha . " - Editar Viagem\r\n");
 
     $opcao = (string)readline("Digite uma opcao: ");
 
@@ -63,6 +69,26 @@ while ($sair == 0) {
             print_r("\n\n");
             editar_Passageiro();
             break;
+
+        case ++$escolha:
+            print_r("Cadastramento de Viagens\r\n");
+            print_r("\n\n");
+            cadastra_Viagem();
+            break;
+                    
+        case ++$escolha:
+            print_r("Ver Viagem\r\n");
+            print_r("\n\n");
+            ver_Viagem();
+            break;
+            //criar o get valor viagem e valor franquia
+        
+        case ++$escolha:
+            print_r("Editar Passgeiros\r\n");
+            print_r("\n\n");
+            altera_Viagem();
+            break;
+            //terminar o altera viagem
 
         case -1:
             print_r("Saindo do sistema...\r\n");
