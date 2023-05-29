@@ -1,5 +1,7 @@
 <?php
 
+include_once("../libs/global.php");
+
 function sis_cadastrarVoo()
 {
     $frequencia = (string)readline("Digite a frequencia do voo (1 - D, 2 - S, 3 - T, 4 - Q, 5 - Q, 6 - S, 7 - S): ");
