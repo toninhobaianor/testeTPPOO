@@ -162,6 +162,9 @@ class Viagem extends persist
      array_push($passageiros, $novaPassagem->getPassageiro());
      $this->setCarga($novaPassagem->getPesoTotal()); 
    }
+  public function getPassageiros(){
+    return $this->passageiros;
+  }
 
   // public function removerPassageiro($passagemRemovida)
   // {

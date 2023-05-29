@@ -1,6 +1,8 @@
 <?php
 
 include_once("../libs/global.php");
+include_once("sistemaAeroporto.php");
+include_once("defines.php/..");
 
 function sis_cadastrarVoo()
 {
