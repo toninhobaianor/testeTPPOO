@@ -28,7 +28,7 @@ function criar_Passagem(){
     $franquiasBagagem = (int)readline("quantas franquias vc quer(limite 3): ");
     $assento = (string)readline("digite um assento(letra numero): ");
 
-    $passagem = new Passagem($voo->getAeroportoOrigem(),$voo->getAeroportoDestino(),$viagem->getvalor(),$assento,$franquiasBagagem,$passageiro,$cliente);
+    $passagem = new Passagem($voo->getAeroportoOrigem(),$voo->getAeroportoDestino(),$viagem->getvalor(),$assento,$franquiasBagagem,$passageiro,$cliente,$viagem);
 
     $passagem->save();
 
@@ -42,7 +42,7 @@ function mostrar_Passagens(array $passagens){
         $pass = $passagem->getPassageiro();
         $clie = $passagem->getClinte();
 
-        print_r($passagem->getIndex() . "-" . $pass->getNome() . "-" . $passagem->getSiglaAeroportoOrigem() . "-" . $passagem->getSiglaAeroportoDestino() . "-" . $clie->getNome() . "-" . $passagem->getStatus() . "-" . $passagem->getPreco() . "\r\n");
+        print_r($passagem->getIndex() . "-" . $pass->getNome() . "-" . $passagem->getSiglaAeroportoOrigem() . "-" . $passagem->getSiglaAeroportoDestino() . "-" . $clie->getNome() . "-" . $passagem->getStatus() . "-" . $passagem->getPreco() . $passagem->getViagem() . "\r\n");
     }
 
 }
@@ -98,7 +98,7 @@ function editar_Passagem(){
     $franquiasBagagem = (int)readline("quantas franquias vc quer(limite 3): ");
     $assento = (string)readline("digite um assento(letra numero): ");
 
-    $passagemnovo = new Passagem($voo->getAeroportoOrigem(),$voo->getAeroportoDestino(),$viagem->getvalor(),$assento,$franquiasBagagem,$passageiro,$cliente);
+    $passagemnovo = new Passagem($voo->getAeroportoOrigem(),$voo->getAeroportoDestino(),$viagem->getvalor(),$assento,$franquiasBagagem,$passageiro,$cliente,$viagem);
 
     $passagem->alterarPassagem($passagemnovo);
     

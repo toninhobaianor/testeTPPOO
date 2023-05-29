@@ -13,11 +13,14 @@ class Viagem extends persist
   private int $milhasViagem;
   private float $valorViagem;
   private float $valorFranquiaBagagem;
+  private string $codigoViagem;
+  //codigo viagem
+  //conexão Viagem
 
 
   static $local_filename = "viagens.txt";
 
-  public function __construct(DateTime $horarioPartida, DateTime $horarioChegada, float $carga, int $voo, int $milhasViagem, float $valorViagem, float $valorFranquiaBagagem)
+  public function __construct(DateTime $horarioPartida, DateTime $horarioChegada, float $carga, int $voo, int $milhasViagem, float $valorViagem, float $valorFranquiaBagagem , string $codigoViagem)
   {
     // $this->setAeroportoOrigem($aeroportoOrigem);
     // $this->setAeroportoDestino($aeroportoDestino);
@@ -30,7 +33,7 @@ class Viagem extends persist
     $this->setMilhasViagem($milhasViagem);
     $this->setvalorViagem($valorViagem);
     $this->setvalorFranquiaBagagem($valorFranquiaBagagem);
-
+    $this->setcodigoViagem($codigoViagem);
     $this->passageiros = array();
   }
 
@@ -74,6 +77,9 @@ class Viagem extends persist
     return $this->carga;
   }
 
+  public function getcodigoViagem(){
+    return $this->codigoViagem;
+  }
   // public function setAeroportoOrigem(string $aeroportoOrigem)
   // {
   //   $this->aeroportoOrigem = $aeroportoOrigem;
@@ -83,6 +89,11 @@ class Viagem extends persist
   // {
   //   $this->aeroportoDestino = $aeroportoDestino;
   // }
+
+
+  public function setcodigoViagem(string $codigoViagem){
+    $this->codigoViagem = $codigoViagem;
+  }
 
   public function setHorarioPartida(DateTime $horarioPartida)
   {
@@ -130,18 +141,27 @@ class Viagem extends persist
     $this->valorViagem = $valorViagem;
   }
 
+  public function getvalorViagem(){
+    return $this->valorViagem;
+  }
+
   public function setvalorFranquiaBagagem($valorFranquiaBagagem)
   {
     $this->valorFranquiaBagagem = $valorFranquiaBagagem;
   }
+
+  public function getvalorFranquiaBagagem(){
+    
+    return $this->valorFranquiaBagagem;
+  }
   //***Falta testar as funcoes comentadas abaixo***
   
-  // public function inserirPassageiro($novaPassagem)
-  // {
+  public function inserirPassageiro($novaPassagem)
+   {
   //   //qualquer tipo de verificacao deve ser feita na hora da venda (carga e assentos)
-  //   array_push($passageiros, $novaPassagem->getPassageiro());
-  //   $this->setCarga($novaPassagem->getPesoTotal()); 
-  // }
+     array_push($passageiros, $novaPassagem->getPassageiro());
+     $this->setCarga($novaPassagem->getPesoTotal()); 
+   }
 
   // public function removerPassageiro($passagemRemovida)
   // {

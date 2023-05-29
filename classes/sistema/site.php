@@ -90,7 +90,7 @@ while ($sair == 0) {
             //criar o get valor viagem e valor franquia
         
         case ++$escolha:
-            print_r("Editar Passageiros\r\n");
+            print_r("Editar Viagem\r\n");
             print_r("\n\n");
             altera_Viagem();
             break;

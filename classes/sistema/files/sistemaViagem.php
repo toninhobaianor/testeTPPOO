@@ -34,7 +34,7 @@ function mostra_Viagem(array $viagens){
         } else {
             $compAereaVoo = $voo->getCompanhiaAerea();
         }
-        print_r($viagem->getIndex() . "-" .$voo->getAeroportoOrigem() . "-" . $voo->getAeroportoDestino() . "-" . $compAereaVoo . "-" . $viagem->getHorarioPartida() . "-" . $viagem->getHorarioChegada() . "-" . $viagem->getValorviagem() . "-" . $viagem->getValorFranquia() . "\r\n");
+        print_r($viagem->getIndex() . "-" .$voo->getAeroportoOrigem() . "-" . $voo->getAeroportoDestino() . "-" . $compAereaVoo . "-" . $viagem->getHorarioPartida() . "-" . $viagem->getHorarioChegada() . "-" . $viagem->getvalorviagem() . "-" . $viagem->getvalorFranquiaBagagem() . "\r\n");
     }
 }
 
@@ -89,4 +89,37 @@ function mostrar_passageiros_Viagem(){
 
 function adicionar_passageiros_Viagem(){
 
+      $viagens = Viagem::getRecords();
+
+    if (count($viagens) == 0) {
+        print_r("Nenhuma viagem cadastrada!\r\n");
+        print_r("\n\n");
+        return;
+    }
+
+    mostra_Viagem($viagens);
+
+    $index = (int)readline("Digite o index do voo: ");
+
+    $viagem = $viagens[$index - 1];
+
+    $passagens = Passagem::getRecords();
+
+    if (count($passagens) == 0) {
+        print_r("Nenhuma passagem cadastrada!\r\n");
+        print_r("\n\n");
+        return;
+    }
+
+    mostrar_Passagens($passagens);
+
+    $index = (int)readline("Digite o index da Passagem: ");
+
+    $passagem = $passagens[$index - 1];
+
+    if($passagem->getViagem() ==   $viagem->getcodigoViagme()){
+        
+        $viagem->inserirPassgeiro($passagem);
+    }
+  print_r("passageiro adicionado com sucesso");
 }
