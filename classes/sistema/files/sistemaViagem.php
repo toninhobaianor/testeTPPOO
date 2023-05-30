@@ -2,7 +2,7 @@
 
 include_once("../libs/global.php");
 include_once("sistemaVoo.php");
-include_once("sistemaPassageiros.php");
+include_once("sistemaPassageiro.php");
 include_once("sistemaPassagem.php");
 
 function cadastra_Viagem(){
@@ -21,7 +21,7 @@ function cadastra_Viagem(){
     $valorViagem = (float)readline("digite o valor da viagem: ");
     $valorFranquiaBagagem = (float)readline("digite o valor da franquia:");
 
-    $codigoViagem = (string)readline("digite um codigo para a viagem: ")
+    $codigoViagem = (string)readline("digite um codigo para a viagem: ");
 
     $viagem = new Viagem($horarioPartida,$horarioChegada,$carga,$index,$milhasViagem,$valorViagem,$valorFranquiaBagagem,$codigoViagem);
 
@@ -33,7 +33,7 @@ function mostra_Viagem(array $viagens){
     print_r("Index -  Aeroporto Origem - Aeroporto Destino - Comp Aerea - Horario Partida - Horario Chegada - Valor da Viagem - Valor da franquia\r\n");
     $voos = Voo::getRecords();
     foreach($viagens as $viagem){
-        $voo = $voos[$viagem->getVoo() - 1]
+        $voo = $voos[$viagem->getVoo() - 1];
         if ($voo->getCompanhiaAerea() == null) {
             $compAereaVoo = "null";
         } else {
@@ -86,7 +86,7 @@ function altera_Viagem(){
     $valorViagem = (float)readline("digite o valor da viagem: ");
     $valorFranquiaBagagem = (float)readline("digite o valor da franquia:");
 
-    $codigoViagem = (string)readline("digite um codigo para a viagem: ")
+    $codigoViagem = (string)readline("digite um codigo para a viagem: ");
 
     $viagemnova = new Viagem($horarioPartida,$horarioChegada,$carga,$index,$milhasViagem,$valorViagem,$valorFranquiaBagagem,$codigoViagem);
 

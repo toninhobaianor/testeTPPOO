@@ -1,5 +1,6 @@
 <?php
 include_once("../libs/global.php");
+include_once("defines.php");
 
 class Viagem extends persist
 {
@@ -27,7 +28,7 @@ class Viagem extends persist
     $this->setHorarioPartida($horarioPartida);
     $this->setHorarioChegada($horarioChegada);
     $this->setDuracao($horarioPartida, $horarioChegada);
-    $this->setAeronave($aeronave);
+    //$this->setAeronave($aeronave);
     $this->setCarga($carga);
     $this->setVoo($voo);
     $this->setMilhasViagem($milhasViagem);

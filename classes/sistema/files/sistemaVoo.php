@@ -2,7 +2,7 @@
 
 include_once("../libs/global.php");
 include_once("sistemaAeroporto.php");
-include_once("defines.php/..");
+
 
 function sis_cadastrarVoo()
 {
@@ -27,6 +27,8 @@ function sis_cadastrarVoo()
     // print_r("Aeroporto Destino: " . $aeroportoDestino . "\r\n");
 
     $dataHoraPartida = (string)readline("Digite a data e hora de previsao partida (dd/mm/aaaa hh:mm): ");
+  //no caso do voo o Datetime deve ter so as horas
+  //a viagem que deve ter o dia,mes e ano
 
     $dataHoraPartida = DateTime::createFromFormat("d/m/Y H:i", $dataHoraPartida);
 
