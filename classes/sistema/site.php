@@ -99,7 +99,7 @@ while ($sair == 0) {
         case ++$escolha:
             print_r("Cadastramento de Passagem\r\n");
             print_r("\n\n");
-            cadastra_Passagem();
+            criar_Passagem();
             break;
                     
         case ++$escolha:

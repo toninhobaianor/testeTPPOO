@@ -8,7 +8,7 @@ class Viagem extends persist
   private DateTime $horarioChegada;
   private DateInterval $duracao;
   //private Aeronave $aeronave;
-  private float $carga;
+  private float $carga = 0;
   private ?array $passageiros;
   private int $voo;
   private int $milhasViagem;
@@ -130,6 +130,10 @@ class Viagem extends persist
   public function setVoo($voo)
   {
     $this->voo = $voo;
+  }
+   public function getVoo()
+  {
+    return $this->voo;
   }
 
   public function setMilhasViagem($milhasViagem)

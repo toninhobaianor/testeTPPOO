@@ -8,18 +8,18 @@ include_once("sistemaCliente.php");
 
 function criar_Passagem(){
     $clientes = Cliente::getRecords();
-    mostra_Cliente($clientes);
-    $indexcliente = (int)readline("Digite o index do voo: ");
+    mostra_Clientes($clientes);
+    $indexcliente = (int)readline("Digite o index do cliente: ");
     $cliente = $clientes[$indexcliente - 1];
 
     $passageiros = Passageiro::getRecords();
     mostra_Passageiros($passageiros);
-    $indexpassa = (int)readline("Digite o index do voo: ");
+    $indexpassa = (int)readline("Digite o index do passageiro: ");
     $passageiro = $passageiros[$indexpassa - 1];
 
     $viagens = Viagem::getRecords();
     mostra_Viagem($viagens);
-    $indexviagem = (int)readline("Digite o index do voo: ");
+    $indexviagem = (int)readline("Digite o index da viagem: ");
     $viagem = $viagens[$indexviagem - 1];
 
     $voos = Voo::getRecords();

@@ -39,7 +39,7 @@ function mostra_Viagem(array $viagens){
         } else {
             $compAereaVoo = $voo->getCompanhiaAerea();
         }
-        print_r($viagem->getIndex() . "-" .$voo->getAeroportoOrigem() . "-" . $voo->getAeroportoDestino() . "-" . $compAereaVoo . "-" . $viagem->getHorarioPartida() . "-" . $viagem->getHorarioChegada() . "-" . $viagem->getValorviagem() . "-" . $viagem->getValorFranquia() . "\r\n");
+        print_r($viagem->getIndex() . "-" .$voo->getAeroportoOrigem() . "-" . $voo->getAeroportoDestino() . "-" . $compAereaVoo . "-" . $viagem->getValorviagem() . "-" . $viagem->getValorFranquiaBagagem() . "\r\n");
     }
 }
 
