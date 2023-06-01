@@ -106,7 +106,3 @@ function editar_Passagem(){
 
 
 }
-
-function fazer_checkin(){
-    
-}

@@ -91,3 +91,10 @@ function editar_passageiro(){
 
     $passageiro->save();
 }
+
+function virar_vip(){
+    //contamos a quantidade de milhas acumuladas
+    //para virar vip dentro de uma certa companhia aerea precisamos de 500pts
+    //vericamos o tipo do passageiro e a quantidade de milhas no array
+    
+}

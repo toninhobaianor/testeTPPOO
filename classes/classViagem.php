@@ -161,12 +161,14 @@ class Viagem extends persist
   }
   //***Falta testar as funcoes comentadas abaixo***
   
-  public function inserirPassageiro($novaPassagem)
+  public function inserirPassageiro(Passagem $novaPassagem, array $passageiros)
    {
-  //   //qualquer tipo de verificacao deve ser feita na hora da venda (carga e assentos)
+    //qualquer tipo de verificacao deve ser feita na hora da venda (carga e assentos)
+    
      array_push($passageiros, $novaPassagem->getPassageiro());
-     $this->setCarga($novaPassagem->getPesoTotal()); 
+     //$this->setCarga($novaPassagem->getPesoTotal()); 
    }
+  
   public function getPassageiros(){
     return $this->passageiros;
   }
