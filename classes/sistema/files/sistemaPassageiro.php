@@ -13,13 +13,15 @@ function cadastra_Passageiro(){
     $email = (string)readline("Digite um email: ");
 
     $passageiro = new Passageiro($tipoPassageiro,$nome,$sobrenome,$documentoIdentificacao,$cpf,$nacionalidade,$dataDeNascimento,$email);
-
+  
+  //print_r($passageiro);
+  
     $passageiro->save();
 }
 
 function mostra_Passageiros(array $passageiros){
     print_r("Passageiros cadastrados:\r\n");
-    print_r("Index - nome - sobrenome - Rg - Passaporte - cpf - nacionalidade - email \r\n");
+    print_r("Index - nome - sobrenome - Rg - Passaporte - cpf - nacionalidade \r\n");
 
     foreach($passageiros as $passageiro){
         if($passageiro->getRg() == null){
@@ -36,8 +38,11 @@ function mostra_Passageiros(array $passageiros){
             $pass = $passageiro->getPassaporte();
         }
 
-        print_r($passageiro->getIndex() . "-" . $passageiro->getNome() . "-" . $passageiro->getSobrenome() . "-" . $rg . "-" . $pass . "-" . $passageiro->getCpf() . "-" . $passageiro->getNacionalidade() . "-" . $passageiro->getEmail() . "\r\n");
+        print_r($passageiro->getIndex() . "-" . $passageiro->getNome() . "-" . $passageiro->getSobrenome() . "-" . $rg . "-" . $pass . "-" . $passageiro->getNacionalidade() . "-" . "\r\n");
+      //print_r($passageiro->getEmail());
+      //os get cpf e email estão com problema
     }
+    
 }
 
 function ver_Passageiros(){

@@ -106,10 +106,10 @@ function mostrar_passageiros_Viagem(){
 
     mostra_Viagem($viagens);
 
-    $index = (int)readline("Digite o index do voo: ");
+    $index = (int)readline("Digite o index da viagem: ");
 
     $viagem = $viagens[$index - 1];
-    $passageirosViagem = $Viagem->getPassageiros();
+    $passageirosViagem = $viagem->getPassageiros();
     mostra_Passageiros($passageirosViagem);
 
 }
@@ -128,6 +128,7 @@ function adicionar_passageiros_Viagem(){
     $index = (int)readline("Digite o index do voo: ");
 
     $viagem = $viagens[$index - 1];
+    print_r("\n\n");
 
     $passagens = Passagem::getRecords();
 
@@ -143,7 +144,7 @@ function adicionar_passageiros_Viagem(){
 
     $passagem = $passagens[$index - 1];
 
-    if($passagem->getViagem() ==   $viagem->getcodigoViagme()){
+    if($passagem->getViagem() == $viagem->getcodigoViagem()){
 
         $viagem->inserirPassgeiro($passagem);
 

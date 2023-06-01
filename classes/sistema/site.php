@@ -28,11 +28,15 @@ while ($sair == 0) {
     print_r(++$escolha . " - Cadastra viagem\r\n");
     print_r(++$escolha . " - Ver Viagens\r\n");
     print_r(++$escolha . " - Editar Viagem\r\n");
+    print_r(++$escolha . " - ver os passageiros da viagem\r\n");
+    print_r(++$escolha . " - adicionar passageiros na Viagem\r\n");
 
     print_r("---PASSAGEM--- \r\n");
     print_r(++$escolha . " - Cadastra Passagem\r\n");
     print_r(++$escolha . " - Ver Passagem\r\n");
     print_r(++$escolha . " - Editar Passagem\r\n");
+
+    print_r("\r\n-1 para sair do sistema\r\n");
 
     $opcao = (string)readline("Digite uma opcao: ");
 
@@ -95,6 +99,18 @@ while ($sair == 0) {
             altera_Viagem();
             break;
             //terminar o altera viagem
+      
+        case ++$escolha:
+            print_r("ver Passageiros na Viagem\r\n");
+            print_r("\n\n");
+            mostrar_passageiros_Viagem();
+            break;
+
+        case ++$escolha:
+            print_r("adicionar Passageiros na  Viagem\r\n");
+            print_r("\n\n");
+            adicionar_passageiros_Viagem();
+            break;
 
         case ++$escolha:
             print_r("Cadastramento de Passagem\r\n");

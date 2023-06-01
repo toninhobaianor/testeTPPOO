@@ -1,5 +1,6 @@
 <?php
 include_once("../libs/global.php");
+include_once("defines.php");
 
 // define('VAZIO', '');
 
@@ -15,13 +16,13 @@ class Passageiro extends persist
   private string $cpf;
   private string $nacionalidade;
   private string $dataDeNascimento;
-  private string $email;
+  private ?string $email;
   private array $listaPassagens;
   private array $historicoViagens;
 
   static $local_filename = "passageiros.txt";
 
-  public function __construct(bool $tipoPassageiro, string $nome, string $sobrenome, string $documentoIdentificacao, string $cpf, string $nacionalidade, string $dataDeNascimento, string $email)
+  public function __construct(bool $tipoPassageiro, string $nome, string $sobrenome, string $documentoIdentificacao, string $cpf, string $nacionalidade, string $dataDeNascimento, ?string $email)
   {
     $this->setTipoPassageiro($tipoPassageiro);
     $this->setNome($nome);
@@ -106,10 +107,7 @@ class Passageiro extends persist
     }
   }
 
-  public function getCpf(): string
-  {
-    return $this->cpf;
-  }
+
 
   public function setCpf(string $cpf): void
   {
@@ -118,6 +116,11 @@ class Passageiro extends persist
     } else {
       echo "CPF inválido!!!!";
     }
+  }
+
+  public function getCpf(): string
+  {
+    return $this->cpf;
   }
 
   public function validarCpf(string $cpf)
