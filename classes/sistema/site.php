@@ -19,7 +19,7 @@ while ($sair == 0) {
     print_r(++$escolha . " - Ver Clientes\r\n");
     print_r(++$escolha . " - Editar Cliente\r\n");
 
-    print_r("---PASSGEIRO--- \r\n");
+    print_r("---PASSAGEIRO--- \r\n");
     print_r(++$escolha . " - Cadastra Passgeiro\r\n");
     print_r(++$escolha . " - Ver Passageiro\r\n");
     print_r(++$escolha . " - Editar Passageiro\r\n");

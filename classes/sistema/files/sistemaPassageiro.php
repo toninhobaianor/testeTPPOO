@@ -21,8 +21,10 @@ function cadastra_Passageiro(){
 
 function mostra_Passageiros(array $passageiros){
     print_r("Passageiros cadastrados:\r\n");
-    print_r("Index - nome - sobrenome - Rg - Passaporte - cpf - nacionalidade \r\n");
+    print_r("Index - nome - sobrenome - Rg - Passaporte -  nacionalidade - Email - Cpf\r\n");
 
+	// print_r($passageiros);
+	
     foreach($passageiros as $passageiro){
         if($passageiro->getRg() == null){
             $rg = "null";
@@ -38,7 +40,7 @@ function mostra_Passageiros(array $passageiros){
             $pass = $passageiro->getPassaporte();
         }
 
-        print_r($passageiro->getIndex() . "-" . $passageiro->getNome() . "-" . $passageiro->getSobrenome() . "-" . $rg . "-" . $pass . "-" . $passageiro->getNacionalidade() . "-" . "\r\n");
+        print_r($passageiro->getIndex() . "-" . $passageiro->getNome() . "-" . $passageiro->getSobrenome() . "-" . $rg . "-" . $pass . "-" . $passageiro->getNacionalidade() . "-" . $passageiro->getEmail() . "-" . $passageiro->getCpf() ."\r\n");
       //print_r($passageiro->getEmail());
       //os get cpf e email estão com problema
     }

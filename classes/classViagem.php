@@ -14,14 +14,12 @@ class Viagem extends persist
   private int $milhasViagem;
   private float $valorViagem;
   private float $valorFranquiaBagagem;
-  private string $codigoViagem;
-  //codigo viagem
-  //conexão Viagem
+
 
 
   static $local_filename = "viagens.txt";
 
-  public function __construct(DateTime $horarioPartida, DateTime $horarioChegada, float $carga, int $voo, int $milhasViagem, float $valorViagem, float $valorFranquiaBagagem , string $codigoViagem)
+  public function __construct(DateTime $horarioPartida, DateTime $horarioChegada, float $carga, int $voo, int $milhasViagem, float $valorViagem, float $valorFranquiaBagagem)
   {
     // $this->setAeroportoOrigem($aeroportoOrigem);
     // $this->setAeroportoDestino($aeroportoDestino);
@@ -34,7 +32,6 @@ class Viagem extends persist
     $this->setMilhasViagem($milhasViagem);
     $this->setvalorViagem($valorViagem);
     $this->setvalorFranquiaBagagem($valorFranquiaBagagem);
-    $this->setcodigoViagem($codigoViagem);
     $this->passageiros = array();
   }
 
@@ -78,9 +75,6 @@ class Viagem extends persist
     return $this->carga;
   }
 
-  public function getcodigoViagem(){
-    return $this->codigoViagem;
-  }
   // public function setAeroportoOrigem(string $aeroportoOrigem)
   // {
   //   $this->aeroportoOrigem = $aeroportoOrigem;
@@ -91,10 +85,6 @@ class Viagem extends persist
   //   $this->aeroportoDestino = $aeroportoDestino;
   // }
 
-
-  public function setcodigoViagem(string $codigoViagem){
-    $this->codigoViagem = $codigoViagem;
-  }
 
   public function setHorarioPartida(DateTime $horarioPartida)
   {
@@ -140,6 +130,10 @@ class Viagem extends persist
   {
     $this->milhasViagem = $milhasViagem;
   }
+  
+  public function getMilhasViagem(){
+    return $this->milhasViagem;
+  }
 
   public function setvalorViagem($valorViagem)
   {
@@ -161,11 +155,10 @@ class Viagem extends persist
   }
   //***Falta testar as funcoes comentadas abaixo***
   
-  public function inserirPassageiro(Passagem $novaPassagem, array $passageiros)
+  public function inserirPassageiro(Passagem $novaPassagem)
    {
     //qualquer tipo de verificacao deve ser feita na hora da venda (carga e assentos)
-    
-     array_push($passageiros, $novaPassagem->getPassageiro());
+     $this->passageiros[] = $novaPassagem->getPassageiro();
      //$this->setCarga($novaPassagem->getPesoTotal()); 
    }
   
@@ -195,6 +188,16 @@ class Viagem extends persist
   //     $passagem->setStatus("Passagem cancelada");
   //     $this->removerPassageiro($passagem);
   //   }
+
+  public function alterarViagem($viagemnova){
+  $this->setHorarioPartida($viagemnova->getHorarioPartida());
+  $this->setHorarioChegada($viagemnova->getHorarioChegada());
+  $this->setVoo($viagemnova->getVoo());
+  $this->setMilhasViagem($viagemnova->getMilhasViagem());
+  $this->setvalorViagem($viagemnova->getvalorViagem());
+  $this->setvalorFranquiaBagagem($viagemnova->getvalorFranquiaBagagem());
+    
+  }
 
   static public function getFilename()
   {

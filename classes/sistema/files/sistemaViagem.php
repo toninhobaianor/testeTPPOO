@@ -21,9 +21,7 @@ function cadastra_Viagem(){
     $valorViagem = (float)readline("digite o valor da viagem: ");
     $valorFranquiaBagagem = (float)readline("digite o valor da franquia:");
 
-    $codigoViagem = (string)readline("digite um codigo para a viagem: ");
-
-    $viagem = new Viagem($horarioPartida,$horarioChegada,$carga,$index,$milhasViagem,$valorViagem,$valorFranquiaBagagem,$codigoViagem);
+    $viagem = new Viagem($horarioPartida,$horarioChegada,$carga,$index,$milhasViagem,$valorViagem,$valorFranquiaBagagem);
 
     $viagem->save();
 }
@@ -68,15 +66,15 @@ function altera_Viagem(){
 
     mostra_Viagem($viagens);
 
-    $index = (int)readline("Digite o index do voo: ");
+    $indexviagem = (int)readline("Digite o index da viagem: ");
 
-    $viagem = $viagens[$index - 1];
+    $viagem = $viagens[$indexviagem - 1];
 
     $voos = Voo::getRecords();
     mostraVoos($voos);
-    $index = (int)readline("Digite o index do voo: ");
+    $indexvoo = (int)readline("Digite o index do voo: ");
 
-    $voo = $voos[$index - 1];
+    $voo = $voos[$indexvoo - 1];
 
     $horarioPartida = $voo->getPrevisaoPartida();
     $horarioChegada = $voo->getPrevisaoChegada();
@@ -86,9 +84,8 @@ function altera_Viagem(){
     $valorViagem = (float)readline("digite o valor da viagem: ");
     $valorFranquiaBagagem = (float)readline("digite o valor da franquia:");
 
-    $codigoViagem = (string)readline("digite um codigo para a viagem: ");
 
-    $viagemnova = new Viagem($horarioPartida,$horarioChegada,$carga,$index,$milhasViagem,$valorViagem,$valorFranquiaBagagem,$codigoViagem);
+    $viagemnova = new Viagem($horarioPartida,$horarioChegada,$carga,$indexvoo,$milhasViagem,$valorViagem,$valorFranquiaBagagem);
 
     $viagem->alterarViagem($viagemnova);
     $viagem->save();
@@ -146,8 +143,8 @@ function adicionar_passageiros_Viagem(){
     $passagem = $passagens[$index - 1];
 
     if($passagem->getViagem() == $viagem->getcodigoViagem()){
-        $passageiros = array();
-        $viagem->inserirPassageiro($passagem,$passageiros);
+      
+        $viagem->inserirPassageiro($passagem);
 
     }
   //verificar caso um certo passageiro ja tenha sido adicionado
@@ -185,7 +182,7 @@ function fazer_checkin(){
     if($passagem->getViagem() ==   $viagem->getcodigoViagem()){
         $passageiro = $passagem->getPassageiro();
         $voo = $viagem->getVoo();
-        $cartao = new Cartaoembarque($passageiro->getNome(),$passageiro->getSobrenome(),$voo->getAeroportoOrigem(),$voo->getAeroportoDestino(),$voo->getPrevisaoPartida(),$viagem->getHorarioPartida(),$passagem->getAssento(),);
+        $cartao = new Cartaoembarque($passageiro->getNome(),$passageiro->getSobrenome(),$voo->getAeroportoOrigem(),$voo->getAeroportoDestino(),$voo->getPrevisaoPartida(),$viagem->getHorarioPartida(),$passagem->getAssento());
 
         //contabilizar as milhas
 
@@ -195,4 +192,37 @@ function fazer_checkin(){
     //se estiver gerar o cartão de embarque
     //contabilizar as milhas
     //mudar o status da passagem
+}
+
+function pesquisar_Viagem(){
+  $aeroOrigem = (string)readline("qual a sigla do aeroporto de origem: ");
+  $aeroDestino = (string)readline("qual a sigla do aeroporto de destino: ");
+  $dataViagem = (DateTime)readline("qual a data da viagem: ");
+  $quantpassa = (int)readline("quantos passageiros tera na viagem: ")
+  $aeroportos = Aeroporto::getRecords();
+  foreach($aeroportos as $aeroporto){
+    if($aeroporto->getSigla() == $aeroOrigem){
+      $origem = $aeroporto;
+    }
+  }
+  
+  $companhiasaereas = $origem->getCompanhiasAereas();
+  foreach($companhiasaereas as $companhia){
+    $viagens = $companhia->getviagens();
+    foreach($viagens as $viagem){
+      $voo = $viagem->getVoo();
+      if($voo->getAeroportoDestino() == $aerodestino){
+        $viagensdest = array();
+        array_push($viagensdest,$viagem);
+      }
+        
+    }
+  }
+  foreach($viagensdest as $viagem){
+    if($viagem->getHorarioPartida() == $dataviagem){
+      $viagenshora = array();
+      array_push($viagenshora,$viagem);
+    }
+  }
+  mostra_Viagem($viagenshora);
 }

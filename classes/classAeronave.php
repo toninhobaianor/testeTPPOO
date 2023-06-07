@@ -16,6 +16,10 @@ class Aeronave extends persist
 	protected ?int $compAereaPertencente; // protected para acessar na busca pelo index
 
 	private array $listaAssentos;
+  //preencher com letras x
+  // x = disponivel
+  // e = escolhido 
+  // v = apareceu e viajou 
 
 	static $local_filename = "aeronaves.txt";
 
